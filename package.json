@@ -1,0 +1,35 @@
+{
+  "name": "tought-cookie-redis-store",
+  "version": "0.0.1",
+  "description": "Store cookie in Redis",
+  "main": "./index",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha tests/**/*.spec.js",
+    "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coghub/tought-cookie-redis-store.git"
+  },
+  "author": "Coghub <falecom@coghub.com.br>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/coghub/tought-cookie-redis-store/issues"
+  },
+  "homepage": "https://github.com/coghub/tought-cookie-redis-store#readme",
+  "dependencies": {
+    "debug": "^3.1.0",
+    "ioredis": "^4.0.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2",
+    "tough-cookie": "^2.4.3"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "mocha": "^5.0.5",
+    "nodemon": "^1.18.3"
+  }
+}
