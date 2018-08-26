@@ -1,6 +1,6 @@
 {
   "name": "cookie-redis-store",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Store cookie in Redis",
   "main": "./index",
   "scripts": {
