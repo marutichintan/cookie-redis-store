@@ -3,6 +3,7 @@ const Redis = require('ioredis');
 const rp = require('request-promise');
 
 const redis = new Redis();
+let newredis = new Redis(null);
 
 const CookieRedisStore = require('../');
 
@@ -12,7 +13,7 @@ describe('CookieRedisStore', async () => {
   let jar;
   it('without cookie', async () => {
     await redis.del('test');
-    jar = rp.jar(new CookieRedisStore(null, 'test'));
+    jar = rp.jar(new CookieRedisStore(newredis, 'test'));
     const response = await rp('https://httpbin.org/cookies', { jar, json: true });
     expect({}).to.deep.equal(response.cookies);
   });

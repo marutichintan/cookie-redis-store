@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/coghub/cookie-redis-store#readme",
   "dependencies": {
-    "deasync": "^0.1.13",
+    "deasync": "^0.1.15",
     "debug": "^3.1.0",
     "ioredis": "^4.0.0",
     "request": "^2.88.0",
