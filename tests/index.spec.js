@@ -12,11 +12,11 @@ const { expect } = chai;
 describe('CookieRedisStore', async () => {
   let jar;
   it('without cookie', async () => {
-    await redis.del('test');
-    jar = rp.jar(new CookieRedisStore(newredis, 'test'));
+    // await redis.del('test');
+    jar = rp.jar(new CookieRedisStore(redis, 'test'));
     const response = await rp('https://httpbin.org/cookies', { jar, json: true });
     expect({}).to.deep.equal(response.cookies);
-  });
+  }).timeout(10000);
   it('set cookie', async () => {
     const qs = {
       key: 'value',
@@ -25,7 +25,7 @@ describe('CookieRedisStore', async () => {
     };
     const response = await rp('https://httpbin.org/cookies/set', { qs, jar, json: true });
     expect(qs).to.deep.equal(response.cookies);
-  });
+  }).timeout(10000);
   it('replace cookie', async () => {
     const qs = {
       key: 'replaced',
@@ -37,7 +37,7 @@ describe('CookieRedisStore', async () => {
     };
     const response = await rp('https://httpbin.org/cookies/set', { qs, jar, json: true });
     expect(expected).to.deep.equal(response.cookies);
-  });
+  }).timeout(10000);
   it('delete cookie', async () => {
     const qs = {
       anotherkey: 'something',
@@ -49,5 +49,5 @@ describe('CookieRedisStore', async () => {
     const response = await rp('https://httpbin.org/cookies/delete', { qs, jar, json: true });
     await redis.del('test');
     expect(expected).to.deep.equal(response.cookies);
-  });
+  }).timeout(10000);
 });
